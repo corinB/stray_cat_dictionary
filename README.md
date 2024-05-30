@@ -26,7 +26,7 @@
 <img src="https://github.com/corinB/stray_cat_dictionary/assets/113911863/d2836644-b155-4175-a565-02f8ea6d0bd2" width="50%">
 </div>
 
-[DB 다이어그램 코드](https://github.com/corinB/stray_cat_dictionary/wiki/DB-Diagram-Code)
+[DB 다이어그램 코드](https://github.com/corinB/stray_cat_dictionary/wiki/DB-Diagram-Cod)
 
 
 ## GitHub-Collaboration-Rules
