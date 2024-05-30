@@ -4,11 +4,11 @@
 
 
 ## 목차 
- - [DevoOs](Devops)
+ - [DevOps](DevOps)
  - [table-map](table-map)
 
 
-## Devops
+## DevOps
  - spring-boot3.2.6
  - jdk-17-amazon-corretto
  - sprind-boot-dependencies: jpa, web, lombok, thymlf, aop
