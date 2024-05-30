@@ -12,9 +12,9 @@
  - spring-boot3.2.6
  - jdk-17-amazon-corretto
  - sprind-boot-dependencies: jpa, web, lombok, thymlf, aop
- - [yaml](yaml)
+ - [yaml](#yaml)
 
-### yamle
+### yaml
 - username: MySql userNmae 맞게 수정
 - password: 자기꺼로 수정
 - url: 자기꺼로 수정
