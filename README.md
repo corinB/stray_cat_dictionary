@@ -32,8 +32,10 @@
 ## GitHub-Collaboration-Rules
  - clone 말고 pull 추천
  - 각자 자신의 브랜치 master 베이스로 만들기
- - 잦은 push 지양, 기능 완성 후 푸시
+ - 잦은 push 지양, 기능 완성 후 push
  - master에 push 절대 금지
  - push시 변경 내용 커밋 혹은 리드미에 추가
+ - 기능 완성시 위키 작성
+ - 이슈 발생시 반드시 이류 업로드
 
 
