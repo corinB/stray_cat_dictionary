@@ -1,6 +1,7 @@
 package com.example.butler.repository;
 
-import com.example.butler.entity.UserCatEntity;
+import com.example.butler.entity.CommentEntity;
+import com.example.butler.entity.PostEntity;
 import com.example.butler.entity.UserEntity;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
@@ -11,25 +12,21 @@ import org.springframework.test.annotation.Rollback;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-class UserCatRepositoryTest {
-
+class PostImgRepositoryTest {
     @Autowired
-    private UserCatRepository userCatRepository;
-
+    private PostImgRepository postImgRepository;
+    @Autowired
+    private CommentRepository commentRepository;
+    @Autowired
+    private PostRepository postRepository;
     @Autowired
     private UserRepository userRepository;
 
-
+    @Test
     @Rollback(value = false)
     @Transactional
-    @Test
-    void addCat(){
-      var user = UserEntity.builder().nick("kim").email("email@gmail").build();
-      //userRepository.save(user); 이거 안해도 자동 저장됨git add.
-
-      var userCat13 = UserCatEntity.builder().name("cat14").des("des14").userEntity(user).build();
-
-      userCatRepository.save(userCat13);
+    void test1(){
+//        var user1 = UserEntity.builder().nick("user1").email("email1").build();
     }
 
 }
