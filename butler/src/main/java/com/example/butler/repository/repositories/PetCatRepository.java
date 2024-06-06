@@ -1,6 +1,6 @@
-package com.example.butler.repository;
+package com.example.butler.repository.repositories;
 
-import com.example.butler.entity.PetCatEntity;
+import com.example.butler.entity.entities.PetCatEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

@@ -1,37 +1,30 @@
-package com.example.butler.entity;
+package com.example.butler.entity.entities;
 
-import com.example.butler.entity.lisen.DefaultListener;
+import com.example.butler.entity.util.base.DefaultBaseEntity;
+import com.example.butler.entity.util.DefaultListener;
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@EntityListeners(value = DefaultListener.class)
 @Data
-@Builder
+@SuperBuilder
+@EqualsAndHashCode(callSuper = true)
+@ToString(callSuper = true)
+@EntityListeners(value = DefaultListener.class)
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "user_t")
-public class UserEntity implements IEntityAdapter<LocalDateTime> {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idx;
+public class UserEntity extends DefaultBaseEntity {
 
     @Column(length = 50, nullable = false)
     private String nick; //닉네임
 
     @Column(length = 50, nullable = false, unique = true)
     private String email; //이메일
-
-
-    @Column(name = "create_at", nullable = false, updatable = false)
-    private LocalDateTime crateAt;
-    @Column(name = "update_at", nullable = false)
-    private LocalDateTime updateAt;
-
 
     // PetCatEntity FK 설정
     @OneToMany(mappedBy = "userEntity", orphanRemoval = true)
@@ -66,4 +59,11 @@ public class UserEntity implements IEntityAdapter<LocalDateTime> {
     @ToString.Exclude
     @Builder.Default
     private List<CommentEntity> commentEntities = new ArrayList<>();
+
+
+    //PostLikeEntity FK 설정
+    @OneToMany(mappedBy = "userEntity")
+    @ToString.Exclude
+    @Builder.Default
+    private List<PostLikeEntity> postLikeEntities = new ArrayList<>();
 }

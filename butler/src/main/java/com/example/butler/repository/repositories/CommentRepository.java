@@ -1,6 +1,6 @@
-package com.example.butler.repository;
+package com.example.butler.repository.repositories;
 
-import com.example.butler.entity.CommentEntity;
+import com.example.butler.entity.entities.CommentEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

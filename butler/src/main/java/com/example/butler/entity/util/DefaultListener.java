@@ -1,6 +1,6 @@
-package com.example.butler.entity.lisen;
+package com.example.butler.entity.util;
 
-import com.example.butler.entity.IEntityAdapter;
+import com.example.butler.entity.util.IEntityAdapter;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 

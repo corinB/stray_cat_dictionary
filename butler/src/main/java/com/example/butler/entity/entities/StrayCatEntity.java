@@ -1,5 +1,7 @@
-package com.example.butler.entity;
+package com.example.butler.entity.entities;
 
+import com.example.butler.entity.util.DefaultListener;
+import com.example.butler.entity.util.base.BaseCatEntity;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -10,6 +12,7 @@ import lombok.experimental.SuperBuilder;
 @ToString(callSuper = true)
 @NoArgsConstructor
 @Entity
+@EntityListeners(value = DefaultListener.class)
 @Table(name = "stray_cat_t")
 public class StrayCatEntity extends BaseCatEntity {
 }

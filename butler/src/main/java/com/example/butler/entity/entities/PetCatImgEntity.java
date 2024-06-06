@@ -1,6 +1,7 @@
-package com.example.butler.entity;
+package com.example.butler.entity.entities;
 
-import com.example.butler.entity.lisen.DefaultListener;
+import com.example.butler.entity.util.base.BaseImgEntity;
+import com.example.butler.entity.util.DefaultListener;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -13,9 +14,10 @@ import lombok.experimental.SuperBuilder;
 @ToString(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "post_img_t")
-public class PostImgEntity extends BaseImgEntity {
+@Table(name = "pet_cat_img_t")
+public class PetCatImgEntity extends BaseImgEntity {
+
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "post_idx")
-    private PostEntity postEntity;
+    @JoinColumn(name = "pet_idx")
+    private PetCatEntity petCatEntity;
 }
