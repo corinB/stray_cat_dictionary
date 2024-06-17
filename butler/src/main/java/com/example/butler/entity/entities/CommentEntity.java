@@ -35,8 +35,13 @@ public class CommentEntity extends DefaultBaseEntity {
 
 
     // CommentLikeEntity FK 설정
-    @OneToMany(mappedBy = "commentEntity", orphanRemoval = true)
+    @OneToMany(mappedBy = "commentEntity", orphanRemoval = true, cascade = CascadeType.PERSIST)
     @ToString.Exclude
     @Builder.Default
     private List<CommentLikeEntity> commentLikeEntityList = new ArrayList<>();
+
+    // 좋아요 추가
+    public void addCommentLike(CommentLikeEntity commentLikeEntity) {
+        commentLikeEntityList.add(commentLikeEntity);
+    }
 }

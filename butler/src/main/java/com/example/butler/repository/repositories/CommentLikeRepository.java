@@ -11,7 +11,6 @@ public interface CommentLikeRepository extends JpaRepository<CommentLikeEntity,L
 
     String findMyLikeContent = "SELECT cl.commentEntity.idx FROM CommentLikeEntity cl WHERE cl.userEntity.idx = :userIdx";
 
-
     @Query(findMyLikeContent)
     public List<Long> findMyLikeContent(String userIdx);
 

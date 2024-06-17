@@ -5,10 +5,7 @@ import com.example.butler.entity.entities.PostEntity;
 import com.example.butler.entity.util.DefaultListener;
 import com.example.butler.entity.util.base.BaseLikeEntity;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 @Entity
@@ -18,6 +15,7 @@ import lombok.experimental.SuperBuilder;
 @Data
 @EntityListeners(value = DefaultListener.class)
 @EqualsAndHashCode(callSuper = true)
+@ToString(callSuper = true)
 @Table(name = "post_like")
 public class PostLikeEntity extends BaseLikeEntity {
     // PostEntity FK 설정

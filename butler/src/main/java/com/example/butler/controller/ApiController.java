@@ -10,7 +10,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.logging.Filter;
 
 @RestController
 @RequestMapping("/api")
@@ -27,13 +26,17 @@ public class ApiController {
         return postService.writePost(dto);
     }
 
-    @PostMapping("/post/like/add") //게시물 좋아요
-    public String addLike(@RequestBody PostLikeDto dto) {
+
+
+    @GetMapping("/post/like/add") //게시물 좋아요
+    public PostDto addLike(@RequestBody PostLikeDto dto) {
         log.info(dto.toString());
-        return postService.addLike(dto);
+        return postService.addPostLike(dto);
     }
 
-    @GetMapping("/user/{nick}/profile/img") //유저 이미지 조회
+
+
+    @GetMapping("/user/{nick}/profile/img") //유저 프로필 이미지 조회
     public List<String> findUserProfileImg(@PathVariable(name = "nick" ) String nick) {
         return userService.findUserProfileImg(nick);
     }

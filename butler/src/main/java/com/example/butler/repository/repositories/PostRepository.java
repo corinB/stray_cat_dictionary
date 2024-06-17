@@ -3,6 +3,7 @@ package com.example.butler.repository.repositories;
 import com.example.butler.entity.entities.PostEntity;
 import com.example.butler.entity.entities.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -30,4 +31,12 @@ public interface PostRepository extends JpaRepository<PostEntity, Long>{
     String getEntityByIdx = "select p from PostEntity p where p.idx = :idx";
     @Query(value = getEntityByIdx)
     public PostEntity getEntityByIdx(Long idx);
+
+
+    String deletePostImgAllQuery = "delete from PostImgEntity pi where pi.postEntity.idx = :idx";
+    @Modifying
+    @Query(value = deletePostImgAllQuery)
+    public void deletePostImgAllQuery(Long idx);
+
+
 }

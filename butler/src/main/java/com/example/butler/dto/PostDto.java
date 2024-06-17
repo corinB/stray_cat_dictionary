@@ -19,6 +19,10 @@ public class PostDto {
     private String title;
     private String content;
 
+    @JsonProperty("tag_list")
+    @Builder.Default
+    private List<String> tagList = new ArrayList<>();
+
     @JsonProperty("post_img_list")
     @Builder.Default
     private List<String> postImgList = new ArrayList<>();

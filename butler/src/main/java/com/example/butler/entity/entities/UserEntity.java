@@ -27,10 +27,15 @@ public class UserEntity extends DefaultBaseEntity {
     private String email; //이메일
 
     // PetCatEntity FK 설정
-    @OneToMany(mappedBy = "userEntity", orphanRemoval = true)
+    @OneToMany(mappedBy = "userEntity", orphanRemoval = true, cascade = CascadeType.PERSIST)
     @ToString.Exclude
     @Builder.Default
     private List<PetCatEntity> userCatEntityList = new ArrayList<>();
+
+    //반려묘 주가
+    public void addPetCat(PetCatEntity petCatEntity) {
+        userCatEntityList.add(petCatEntity);
+    }
 
 
     // StrayCatEntity FK 설정
@@ -39,12 +44,22 @@ public class UserEntity extends DefaultBaseEntity {
     @Builder.Default
     private List<StrayCatEntity> strayCatList = new ArrayList<>();
 
+    //길고양이 주가
+    public void addStrayCat(StrayCatEntity strayCatEntity) {
+        strayCatList.add(strayCatEntity);
+    }
+
 
     // UserImgEntity FK 설정
     @OneToMany(mappedBy = "userEntity", orphanRemoval = true)
     @ToString.Exclude
     @Builder.Default
     private List<UserImgEntity> userImgEntities = new ArrayList<>();
+
+    //이미지 주가
+    public void addUserImg(UserImgEntity userImgEntity) {
+        userImgEntities.add(userImgEntity);
+    }
 
 
     // PostEntity FK 설정
@@ -60,10 +75,15 @@ public class UserEntity extends DefaultBaseEntity {
     @Builder.Default
     private List<CommentEntity> commentEntities = new ArrayList<>();
 
-
     //PostLikeEntity FK 설정
-    @OneToMany(mappedBy = "userEntity")
+    @OneToMany(mappedBy = "userEntity", cascade = CascadeType.PERSIST)
     @ToString.Exclude
     @Builder.Default
     private List<PostLikeEntity> postLikeEntities = new ArrayList<>();
+
+    //게시물 LIKE 추가
+    public void addPostLike(PostLikeEntity postLikeEntity) {
+        postLikeEntities.add(postLikeEntity);
+    }
+
 }
