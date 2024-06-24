@@ -35,4 +35,12 @@ class PostLikeRepositoryTest {
         postLikeRepository.save(like);
     }
 
+    @Test
+    @Rollback(value = false)
+    @Transactional
+    void countPostLikeByPostIdx(){
+        var count = postLikeRepository.countPostLikeByPostIdx(7L);
+        System.out.println(count);
+    }
+
 }

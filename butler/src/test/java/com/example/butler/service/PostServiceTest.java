@@ -10,6 +10,9 @@ import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.test.annotation.Rollback;
 
 import java.util.ArrayList;
@@ -74,5 +77,26 @@ class PostServiceTest {
         postService.upDateTag(14L, "고양이");
         postService.upDateTag(14L, "츄르");
 
+    }
+
+//    @Test
+//    @Rollback(value = false)
+//    @Transactional
+//    void landing(){
+//        var page = postService.landingPage();
+//
+//        System.out.println(page.size());
+//        System.out.println(page);
+//    }
+
+
+    @Test
+    @Rollback(value = false)
+    @Transactional
+    void getPage(){
+        Pageable pageable = PageRequest.of(0, 10, Sort.by("updateAt").descending());
+        var page = postService.getPage(pageable);
+        System.out.println(page.size());
+        System.out.println(page);
     }
 }

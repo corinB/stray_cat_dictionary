@@ -10,5 +10,8 @@ import java.util.List;
 
 @Repository
 public interface PostLikeRepository extends JpaRepository<PostLikeEntity, Long>{
+    String countPostLikeByPostIdxQuery = "select count(pl.idx) from PostLikeEntity pl where pl.postEntity.idx = :idx";
+    @Query(value = countPostLikeByPostIdxQuery)
+    public int countPostLikeByPostIdx(Long idx);
 }
 

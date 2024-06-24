@@ -65,4 +65,12 @@ class PostImgRepositoryTest {
         }
     }
 
+    @Test
+    @Rollback(value = false)
+    @Transactional
+    void findPathByPostIdx(){
+        var pathList = postImgRepository.findPathByPostIdx(53L);
+        System.out.println(pathList);
+    }
+
 }

@@ -24,6 +24,8 @@ public class PostEntity extends DefaultBaseEntity {
     private String title;//제목
     @Column(columnDefinition = "TEXT", nullable = false)
     private String content; //내용
+    private String latitude;
+    private String longitude;
 
 
     @ManyToOne(fetch = FetchType.LAZY)

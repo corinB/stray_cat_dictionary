@@ -1,6 +1,12 @@
 spring:
   application:
   name: butler
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
 
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/db?useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul
@@ -15,3 +21,8 @@ spring:
     properties:
       hibernate:
         format_sql: true
+
+
+dir:
+  img:
+    post: C:\StudySpace\cat\images\post\

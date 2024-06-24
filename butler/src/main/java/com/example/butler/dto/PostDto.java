@@ -19,9 +19,9 @@ public class PostDto {
     private String title;
     private String content;
 
-    @JsonProperty("tag_list")
+    @JsonProperty("post_tag_list")
     @Builder.Default
-    private List<String> tagList = new ArrayList<>();
+    private List<String> postTagList = new ArrayList<>();
 
     @JsonProperty("post_img_list")
     @Builder.Default
@@ -30,4 +30,9 @@ public class PostDto {
     @JsonProperty("like_count")
     @Builder.Default
     private int likeCount = 0;
+
+    private String latitude;
+    private String longitude;
+
+
 }
