@@ -24,4 +24,14 @@ public interface UserRepository extends JpaRepository<UserEntity, Long> {
     String getEntityByIdx = "select u  from UserEntity u where u.idx = :idx";
     @Query(value = getEntityByIdx)
     public UserEntity getEntityByIdx(Long idx);
+
+    String findMeQuery = "select u from UserEntity u where u.email = :email and u.password = :password";
+    @Query(value = findMeQuery)
+    public UserEntity findMe(String email, String password);
+
+    String checkEmail = "select u from UserEntity u where u.email = :email";
+    @Query(value = checkEmail)
+    public UserEntity checkEmail(String email);
+
+
 }

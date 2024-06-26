@@ -26,6 +26,9 @@ public class UserEntity extends DefaultBaseEntity {
     @Column(length = 50, nullable = false, unique = true)
     private String email; //이메일
 
+    @Column(length = 50, nullable = false)
+    private String password; //비밀번호
+
     // PetCatEntity FK 설정
     @OneToMany(mappedBy = "userEntity", orphanRemoval = true, cascade = CascadeType.PERSIST)
     @ToString.Exclude

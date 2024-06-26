@@ -1,7 +1,9 @@
 package com.example.butler.controller;
 
 import com.example.butler.dto.PostDto;
+import com.example.butler.dto.UserDto;
 import com.example.butler.service.PostService;
+import com.example.butler.service.UserService;
 import com.example.butler.util.ImgUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -25,6 +27,7 @@ import java.util.List;
 public class PageController {
     private final PostService postService;
     private final ImgUtil imgUtil;
+    private final UserService userService;
     @GetMapping("/post/dto")
     public String postDto() {
         return "PostTest";
@@ -82,4 +85,45 @@ public class PageController {
         return "landingPage";
     }
 
+    @GetMapping("/user/singin")
+    public String singIn() {
+        return "SingIn";
+    }
+
+    @GetMapping("/user/singin/go")
+    public String singUp(@RequestParam("nick") String nick,
+                         @RequestParam("email") String email,
+                         @RequestParam("password") String password) {
+
+        if (!userService.emailCheck(email)){
+            return "EmailError";
+        }
+        var user = UserDto.builder()
+                .nick(nick)
+                .email(email)
+                .password(password)
+                .build();
+        if (userService.singIn(user)) {
+            return "landingPage";
+        }
+        return "SingInError";
+    }
+
+    @GetMapping("/user/login")
+    public String login() {
+        return "Login";
+    }
+
+    @GetMapping("/user/login/go")
+    public String login(@RequestParam("email") String email,
+                        @RequestParam("password") String password,
+                        @PageableDefault(page = 0,size = 10, sort = "updateAt", direction = Sort.Direction.DESC)
+                            Pageable pageable, Model model) {
+        if (userService.findMe(email, password) == null) {
+            return "SingInError";
+        }
+        var page = postService.getPage(pageable);
+        model.addAttribute("dtoList", page);
+        return "landingPage";
+    }
 }
